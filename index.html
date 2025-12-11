@@ -1,1 +1,68 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="stylesheet" type="text/css" href="bootstrap3.min.css"><link rel="stylesheet" type="text/css" href="index.css"><script type="text/javascript" src="jquery-1.10.2.min.js"></script><script type="text/javascript" src="bootstrap3.min.js"></script><script type="text/javascript" src="index.js"></script></head><body><div id="timer">????</div><a class="btn btn-info fbtn" id="min60" onclick="adjust(-60)">-60</a><a class="btn btn-info fbtn" id="min10" onclick="adjust(-10)">-10</a><a class="btn btn-primary" id="toggle" onclick="toggle()">RUN</a><a class="btn btn-warning" id="reset" onclick="reset()">RESET</a><a class="btn btn-default" id="hide" onclick="show()">&#xd60;</a><a class="btn btn-info fbtn" id="add10" onclick="adjust(10)">+10</a><a class="btn btn-info fbtn" id="add60" onclick="adjust(60)">+60</a><a class="btn btn-success fbtn" id="def10" onclick="adjust(0,10)">10 sec</a><a class="btn btn-success fbtn" id="def30" onclick="adjust(0,30)">30 sec</a><a class="btn btn-success fbtn" id="def60" onclick="adjust(0,60)">1 min</a><a class="btn btn-success fbtn" id="def180" onclick="adjust(0,180)">3 min</a><a class="btn btn-success fbtn" id="def300" onclick="adjust(0,300)">5 min</a><a class="btn btn-success fbtn" id="def600" onclick="adjust(0,600)">10 min</a><a class="btn btn-success fbtn" id="def900" onclick="adjust(0,900)">15 min</a><a class="btn btn-success fbtn" id="def1800" onclick="adjust(0,1800)">30 min</a></body></html>
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sacred Timer</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div class="gradient"></div>
+  <main class="canvas">
+    <div class="geometry"></div>
+    <section class="timer-card">
+      <header class="card-header">
+        <p class="eyebrow">Sacred Timer</p>
+        <h1>神聖的節奏</h1>
+        <p class="subtitle">一段屬於你自己的神聖時間</p>
+      </header>
+
+      <div class="progress-area">
+        <div class="ring-wrapper">
+          <svg class="progress-ring" viewBox="0 0 220 220" aria-hidden="true">
+            <defs>
+              <linearGradient id="ringGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#58e2c2" />
+                <stop offset="100%" stop-color="#c9a5ff" />
+              </linearGradient>
+            </defs>
+            <circle class="ring-bg" cx="110" cy="110" r="90"></circle>
+            <circle class="ring-progress" id="ring-progress" cx="110" cy="110" r="90"></circle>
+          </svg>
+          <div class="time-readout">
+            <div id="time">01:00</div>
+            <div id="status" aria-live="polite">靜心倒數中</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="controls">
+        <div class="primary-actions">
+          <button class="btn accent" id="toggle">開始</button>
+          <button class="btn ghost" id="reset">重置</button>
+        </div>
+        <div class="secondary-actions">
+          <div class="pill-group" aria-label="微調時間">
+            <button class="pill" data-adjust="-60">-1:00</button>
+            <button class="pill" data-adjust="-10">-0:10</button>
+            <button class="pill" data-adjust="10">+0:10</button>
+            <button class="pill" data-adjust="60">+1:00</button>
+          </div>
+          <div class="pill-group" aria-label="快速設定">
+            <button class="pill" data-preset="10">10 秒</button>
+            <button class="pill" data-preset="30">30 秒</button>
+            <button class="pill" data-preset="60">1 分</button>
+            <button class="pill" data-preset="180">3 分</button>
+            <button class="pill" data-preset="300">5 分</button>
+            <button class="pill" data-preset="600">10 分</button>
+            <button class="pill" data-preset="900">15 分</button>
+            <button class="pill" data-preset="1800">30 分</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="index.js"></script>
+</body>
+</html>
